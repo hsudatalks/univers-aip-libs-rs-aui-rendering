@@ -16,3 +16,6 @@ pub use windows::{
 };
 #[cfg(test)]
 mod tests;
+
+#[cfg(feature = "components")]
+pub mod components;

@@ -12,6 +12,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "async-trait"
+version = "0.1.92"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "82f6aeea286b8eb4dd3431a1be1b59d290ace00f5bfd8e2a159bc2a05e2c1667"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 3.0.6",
+]
+
+[[package]]
 name = "autocfg"
 version = "1.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -48,6 +59,7 @@ dependencies = [
  "iana-time-zone",
  "js-sys",
  "num-traits",
+ "serde",
  "wasm-bindgen",
  "windows-link",
 ]
@@ -276,6 +288,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d245f478577f809a851594d02313b640fb437e0bb33866753cff937863096954"
 
 [[package]]
+name = "univers-aip-contracts-operation"
+version = "1.0.0-rc.1"
+source = "sparse+https://david-server.mink-ph.ts.net/api/v1/crates/"
+checksum = "e1994d4f016426ec5da5db32229a3482b93fdbc4ae4768c1996b8cda105adb27"
+dependencies = [
+ "async-trait",
+ "chrono",
+ "serde",
+ "serde_json",
+ "univers-aip-contracts-shared",
+]
+
+[[package]]
 name = "univers-aip-contracts-shared"
 version = "1.0.0-rc.1"
 source = "sparse+https://david-server.mink-ph.ts.net/api/v1/crates/"
@@ -286,10 +311,11 @@ dependencies = [
 
 [[package]]
 name = "univers-aip-lib-aui-rendering"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chrono",
  "serde_json",
+ "univers-aip-contracts-operation",
  "univers-aip-contracts-shared",
 ]
 

@@ -34,3 +34,17 @@ Development: `bash scripts/check.sh` (format, strict Clippy, tests),
 `bash scripts/build.sh`, `bash scripts/package.sh` and
 `bash scripts/publish.sh`. Dependencies come from registries; no sibling checkout
 is required. The release lock tests Shared 1.0.0-rc.1 compatibility.
+
+## Optional text components (0.1.1)
+
+Enable `components` for `components::{Stat, List}`. `Stat` renders explicit
+caller-provided counts/metrics. `List::new(headers, rows).render(view)` applies
+the public Operation `DimensionViewConfig` to caller-owned text rows, retaining
+filter/sort/pagination, escaping and character-budget behavior. It performs no
+query or mutation. The release lock tests Operation and Shared rc.1.
+
+`Stat` retains the legacy empty-builder text `0`; callers must distinguish an
+empty summary from unavailable measurements before constructing presentation.
+`List` retains its 20-row and 3000-character defaults, configurable view/character
+budget, and legacy behavior for unknown filter/sort columns. This feature neither
+loads owner data nor establishes World/tenant scope or observation provenance.

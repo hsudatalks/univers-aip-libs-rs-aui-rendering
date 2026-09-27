@@ -1,6 +1,6 @@
 [package]
 name = "univers-aip-lib-aui-rendering"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.89"
 license = "MIT"
@@ -12,7 +12,11 @@ include = ["Cargo.toml", "Cargo.lock", "README.md", "src/**", "tests/**", "scrip
 [workspace]
 members = ["."]
 resolver = "2"
+[features]
+default = []
+components = ["dep:univers-aip-contracts-operation"]
 [dependencies]
+univers-aip-contracts-operation = { version = ">=1.0.0-rc.1, <1.0.0", registry = "univers", default-features = false, features = ["aui"], optional = true }
 chrono = "0.4"
 serde_json = "1"
 univers-aip-contracts-shared = { version = ">=1.0.0-rc.1, <1.0.0", registry = "univers", default-features = false, features = ["insight-types"] }

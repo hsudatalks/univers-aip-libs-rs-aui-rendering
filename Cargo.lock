@@ -311,7 +311,7 @@ dependencies = [
 
 [[package]]
 name = "univers-aip-lib-aui-rendering"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "chrono",
  "serde_json",

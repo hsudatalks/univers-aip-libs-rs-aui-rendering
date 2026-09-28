@@ -48,3 +48,11 @@ empty summary from unavailable measurements before constructing presentation.
 `List` retains its 20-row and 3000-character defaults, configurable view/character
 budget, and legacy behavior for unknown filter/sort columns. This feature neither
 loads owner data nor establishes World/tenant scope or observation provenance.
+
+## Markdown documents (0.1.2)
+
+`AuiDocument`, `Section`, `SectionContent` and `Subsection` compose caller-owned
+Markdown titles, subtitles, tables, lists and footers. These std-only values are
+available without the optional `components` feature. They preserve the existing
+text layout and empty-value labels; HTTP responses, status codes, localized error
+policy and data retrieval remain with each consumer.

@@ -449,3 +449,22 @@ fn test_accumulated_window_chronological_order() {
     assert!(middle_pos < newest_pos);
     assert!(newest_pos < current_pos);
 }
+
+#[test]
+fn document_sections_preserve_the_existing_markdown_layout() {
+    use crate::{AuiDocument, Section};
+    let rendered = AuiDocument::new("Job")
+        .subtitle("pending")
+        .section(Section::key_value(
+            "Details",
+            vec![("Owner", "Compute".into())],
+        ))
+        .section(Section::list("Tags", vec!["batch".into(), "local".into()]))
+        .footer("caller supplied")
+        .render();
+    assert_eq!(rendered, "# Job\n\n_pending_\n\n## Details\n\n| 属性 | 值 |\n|------|----|\n| Owner | Compute |\n\n\n## Tags\n\n- batch\n- local\n\n---\n\n_caller supplied_\n");
+    assert_eq!(
+        Section::key_value("Empty", vec![]).render(),
+        "## Empty\n\n_无数据_\n"
+    );
+}
